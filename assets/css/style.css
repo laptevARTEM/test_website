@@ -1,3 +1,9 @@
-img{
-
+table{
+    width: 100%;
+    background: white;
+    color: white;
+    border: 1px;
+}
+th{
+    background: #555555;
 }
