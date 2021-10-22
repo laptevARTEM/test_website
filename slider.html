@@ -4,6 +4,28 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>3 Column Layout</title>
     <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        window.onload = function() {
+            let slides = [
+                {
+                    title: "Google",
+                    background: "https://via.placeholder.com/500x150",
+                    link: "http://google.com"
+                }, {
+                    title: "Yahoo",
+                    background: "https://via.placeholder.com/500x150",
+                    link: "http://yahoo.com"
+                }, {
+                    title: "Kinokiller",
+                    background: "assets/img/kinokiller.jpg",
+                    link: "https://www.youtube.com/channel/UCywzTA4pGSwV715Pg2swlGA"
+                }
+            ]
+            Slider.initSlider(slides);
+        };
+    </script>
+
 </head>
 <body>
 <header class="header"><p>Header...</p>
@@ -12,8 +34,55 @@
 <div class="container">
     <main class="center column">
         <article>
-            <h1>Slider</h1>
-            <p></p>
+            <button class="swap" type="button">Show</button>
+            <div class="content hidden">
+                <h1>Slider</h1>
+                <p></p>
+                <div id="slider"></div>
+                <input id="prev" class="button" type="button" value="Prev"/>
+                <input id="next" class="button" type="button" value="Next"/>
+                <button id="auto" class="button" type="button">Start</button>
+                <div id="buttons"></div>
+                <script src="assets/js/script.js"></script>
+                <script>
+                    next.addEventListener("click", function (){
+                        Slider.nextSlide();
+                    });
+                    prev.addEventListener("click", function (){
+                        Slider.prevSlide();
+                    });
+
+
+
+                    auto.addEventListener("click", function (){
+
+                        if(document.getElementById("auto").textContent === "Start"){
+                            document.getElementById("auto").textContent = "Stop";
+                            timerID = setInterval(function (){
+                                Slider.nextSlide();
+                            }, 1000*2)
+                        }else{
+                            document.getElementById("auto").textContent = "Start";
+                            clearInterval(timerID);
+                        }
+                    })
+                </script>
+            </div>
+            <script>
+                const btn = document.querySelector(".swap");
+                const content = document.querySelector(".content")
+
+                btn.addEventListener("click", btnClick);
+
+                function btnClick(){
+                    if (content.classList.contains("hidden")){
+                        btn.textContent = "Hide";
+                    }else{
+                        btn.textContent = "Show";
+                    }
+                    content.classList.toggle("hidden");
+                }
+            </script>
         </article>
     </main>
     <nav class="left column">
