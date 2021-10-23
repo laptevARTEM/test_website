@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>3 Column Layout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/canvas.css">
+    <link href="assets/css/all.css" rel="stylesheet">
+    <script defer src="assets/js/all.js"></script>
+    <script src="assets/js/canvas.js"></script>
+    <script>
+        window.onload = function (){
+            canvas('#draw', {
+                width: 500,
+                height: 300,
+                strokeWidth: 5,
+                strokeColor: "#df4b26"
+            })
+        }
+    </script>
+</head>
+<body>
+<header class="header"><p>Header...</p>
+    <img src="assets/img/logo.jpg">
+</header>
+<div class="container">
+    <main class="center column">
+        <article>
+            <h1>Heading</h1>
+            <p></p>
+        </article>
+        <canvas id="draw"></canvas>
+        <div class="toolbar" id="toolbar">
+            <input type="range" min="1" max="25" id="brushSize" value="1">
+            <input type="color" id="brushColor">
+        </div>
+    </main>
+    <nav class="left column">
+        <h3>Links</h3>
+        <ul>
+            <li>
+                <a href="about.html">About</a>
+            </li>
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+            <li>
+                <a href="slider.html">Slider</a>
+            </li>
+            <li>
+                <a href="table.html">Table</a>
+            </li>
+            <li>
+                <a href="media.html">Media</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="right column">
+        <h3>Right heading</h3>
+        <p></p>
+    </div>
+    <div class="push"></div>
+</div>
+<div class="footer-wrapper">
+    <footer class="footer"><img src="assets/img/logo.jpg"><p>Footer...</p></footer>
+</div>
+</body>
+</html>
